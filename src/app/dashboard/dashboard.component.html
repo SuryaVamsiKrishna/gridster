@@ -1,0 +1,35 @@
+<p>dashboard works!
+    <button (click)="addItem()">Add Item</button>
+</p>
+    <!-- <ol>
+        <li>
+          <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </li>
+        <li *ngIf="animal">
+          You chose: <i>{{animal}}</i>
+        </li>
+    </ol> -->
+
+
+<gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of items">
+      <!-- your content here -->
+      
+        <div (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">
+          Some content to click without dragging the widget
+        </div>
+        <p>{{item.heading}}</p>
+        <p>{{item.subheading}}</p>
+        <div class="item-buttons">
+          <button md-icon-button md-raised-button class="drag-handler">
+              open_with
+          </button>
+          <button md-icon-button md-raised-button class="remove-button" (click)="removeItem($event, item)"
+                  (touchstart)="removeItem($event, item)" mdTooltip="Remove">
+            clear
+          </button>
+        </div>
+        <div *ngIf="item.type === 'table'"><app-table></app-table></div>
+        <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
+     </gridster-item>
+  </gridster>
