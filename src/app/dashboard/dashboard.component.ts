@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem }  from 'angular-gridster2';
 import { Tiles } from './tiles.model';
-import { Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import DashboardData from './dahboard.json';
 
+interface DashboardItemsData {
+  heading: string;
+  subheading: string;
+  type: string;
+  x: number;
+  y: number;
+  rows: number;
+  cols: number;
+}
+ 
 export interface DialogData {
   heading: string;
   subheading: string;
@@ -17,7 +26,9 @@ export interface DialogData {
 })
 export class DashboardComponent implements OnInit {
    options: GridsterConfig;
-   items: Array<Tiles>;
+   static items: Array<Tiles>;
+   tempitems: Array<Tiles>;
+  //  Dashboarditems: DashboardItemsData[] = DashboardData ;
 
    itemChange(item:any, itemComponent:any) {
      console.info('itemChanged', item, itemComponent);
@@ -38,15 +49,8 @@ export class DashboardComponent implements OnInit {
        swap:true
      };
  
-     this.items = [
-       {heading:'abc', subheading:'xyz', type:'table', cols: 3, rows: 1, y: 0, x: 0},
-       {heading:'abc', subheading:'xyz', type:'graph', cols: 3, rows: 1, y: 0, x: 3},
-       {heading:'abc', subheading:'xyz', type:'table',cols: 3, rows: 1, y: 0, x: 6},
-       {heading:'abc', subheading:'xyz', type:'graph',cols: 3, rows: 1, y: 0, x: 9},
-       {heading:'abc', subheading:'xyz', type:'table',cols: 4, rows: 1, y: 1, x: 0},
-       {heading:'abc', subheading:'xyz', type:'graph',cols: 4, rows: 1, y: 1, x: 4},
-       {heading:'abc', subheading:'xyz', type:'table',cols: 4, rows: 1, y: 1, x: 8}
-     ];
+     DashboardComponent.items = DashboardData;
+     this.tempitems = DashboardComponent.items;
    }
  
    changedOptions() {
@@ -54,55 +58,23 @@ export class DashboardComponent implements OnInit {
    }
  
    removeItem($event:any,item:any) {
-     this.items.splice(this.items.indexOf(item), 1);
+    DashboardComponent.items.splice(DashboardComponent.items.indexOf(item), 1);
    }
  
-   addItem() {
-     console.log(this.items);
-     this.items.push({heading:'abc', subheading:'xyz',type:'graph',cols: 1, rows: 1, y: 0, x: 0});
+   static addItem(currtype: string) {
+     console.log('Hi2');
+    //  this.tempitems = DashboardComponent.items;
+     this.items.push({heading:'abc', subheading:'xyz',type: currtype,cols: 1, rows: 1, y: 0, x: 0});
+     console.log(DashboardComponent.items);
+     
+   }
+
+   pseudaddItem(currtype: string){
+     console.log(this.tempitems);
+     DashboardComponent.addItem(currtype);
    }
 
   
 
 }
 
-
-export class DialogOverviewExample {
-
-  heading: string;
-  subheading: string;
-  type: string;
-
-  constructor(public dialog: MatDialog) {}
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {heading: this.heading, subheading: this.subheading, type: this.type}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.heading = result[0];
-      this.subheading = result[1];
-      this.type = result[2];
-    });
-  }
-
-}
-
-@Component({
-  selector: 'model',
-  templateUrl: './model.html',
-})
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}

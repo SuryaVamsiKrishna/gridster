@@ -17,6 +17,9 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {FormsModule} from "@angular/forms";
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 
@@ -25,7 +28,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     AppComponent,
     DashboardComponent,
     TableComponent,
-    GraphComponent
+    GraphComponent,
+    SidenavComponent
   ],
   exports: [
     MatFormFieldModule,
@@ -40,7 +44,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ReactiveFormsModule,
     GridsterModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

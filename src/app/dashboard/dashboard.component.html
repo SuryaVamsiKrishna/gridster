@@ -1,5 +1,6 @@
-<p>dashboard works!
-    <button (click)="addItem()">Add Item</button>
+<body>
+<p>
+    <button (click)="pseudaddItem('table')">Add Item</button>
 </p>
     <!-- <ol>
         <li>
@@ -12,7 +13,7 @@
 
 
 <gridster [options]="options">
-    <gridster-item [item]="item" *ngFor="let item of items">
+    <gridster-item [item]="item" *ngFor="let item of tempitems">
       <!-- your content here -->
       
         <div (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">
@@ -33,3 +34,4 @@
         <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
      </gridster-item>
   </gridster>
+</body>
