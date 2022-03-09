@@ -19,6 +19,7 @@ import {FormsModule} from "@angular/forms";
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { Output, EventEmitter } from '@angular/core';
 
 
 
@@ -45,7 +46,7 @@ import {MatDividerModule} from '@angular/material/divider';
     GridsterModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

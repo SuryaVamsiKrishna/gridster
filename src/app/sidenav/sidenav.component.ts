@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DashboardComponent } from '../dashboard/dashboard.component'
 
 @Component({
@@ -8,7 +8,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component'
 })
 export class SidenavComponent implements OnInit {
 
-  
+  @Output() addEvent  = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,13 +18,11 @@ export class SidenavComponent implements OnInit {
   
 
   onAddTable(){
-    let temp = new DashboardComponent();
-    DashboardComponent.addItem('table');
+    this.addEvent.emit('table');
   }
 
   onAddGraph(){
-    let temp = new DashboardComponent();
-    DashboardComponent.addItem('graph');
+    this.addEvent.emit('graph');
   }
 
 }

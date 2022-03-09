@@ -1,19 +1,13 @@
-<body>
+<app-sidenav style="float: left;" (addEvent)="onAddEvent($event)"></app-sidenav>
+
+<div class="dash">
 <p>
-    <button (click)="pseudaddItem('table')">Add Item</button>
+    <button (click)="onAddEvent('table')">Add Item</button>
 </p>
-    <!-- <ol>
-        <li>
-          <button mat-raised-button (click)="openDialog()">Pick one</button>
-        </li>
-        <li *ngIf="animal">
-          You chose: <i>{{animal}}</i>
-        </li>
-    </ol> -->
 
 
 <gridster [options]="options">
-    <gridster-item [item]="item" *ngFor="let item of tempitems">
+    <gridster-item [item]="item" *ngFor="let item of items">
       <!-- your content here -->
       
         <div (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">
@@ -34,4 +28,4 @@
         <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
      </gridster-item>
   </gridster>
-</body>
+</div>

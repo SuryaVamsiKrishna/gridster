@@ -26,7 +26,7 @@ export interface DialogData {
 })
 export class DashboardComponent implements OnInit {
    options: GridsterConfig;
-   static items: Array<Tiles>;
+   items: Array<Tiles>;
    tempitems: Array<Tiles>;
   //  Dashboarditems: DashboardItemsData[] = DashboardData ;
 
@@ -49,8 +49,8 @@ export class DashboardComponent implements OnInit {
        swap:true
      };
  
-     DashboardComponent.items = DashboardData;
-     this.tempitems = DashboardComponent.items;
+     this.items = DashboardData;
+    //  this.tempitems = DashboardComponent.items;
    }
  
    changedOptions() {
@@ -58,22 +58,19 @@ export class DashboardComponent implements OnInit {
    }
  
    removeItem($event:any,item:any) {
-    DashboardComponent.items.splice(DashboardComponent.items.indexOf(item), 1);
+    this.items.splice(this.items.indexOf(item), 1);
    }
  
-   static addItem(currtype: string) {
+   addItem(currtype: string) {
      console.log('Hi2');
-    //  this.tempitems = DashboardComponent.items;
      this.items.push({heading:'abc', subheading:'xyz',type: currtype,cols: 1, rows: 1, y: 0, x: 0});
-     console.log(DashboardComponent.items);
+     console.log(this.items);
      
    }
 
-   pseudaddItem(currtype: string){
-     console.log(this.tempitems);
-     DashboardComponent.addItem(currtype);
-   }
-
+  onAddEvent($event:any){
+    this.addItem($event);
+  }
   
 
 }
