@@ -69,9 +69,9 @@ export class DashboardComponent implements OnInit {
    }
 
   onAddEvent($event:any){
+    console.log($event);
     this.addItem($event);
   }
   
 
 }
-

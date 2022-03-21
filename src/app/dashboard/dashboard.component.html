@@ -1,6 +1,10 @@
-<app-sidenav style="float: left;" (addEvent)="onAddEvent($event)"></app-sidenav>
+
+<div class="outer">
+  <app-sidenav style="float: left;" (addEvent)="onAddEvent($event)"></app-sidenav>
+
 
 <div class="dash">
+  
 <p>
     <button (click)="onAddEvent('table')">Add Item</button>
 </p>
@@ -28,4 +32,5 @@
         <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
      </gridster-item>
   </gridster>
+</div>
 </div>
