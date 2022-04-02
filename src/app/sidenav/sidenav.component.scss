@@ -1,3 +1,23 @@
-mat-list{
+.sidenav
+{
+    width: 15%;
+    height: 90%;
     float: left;
+    background-color: #ff8800;
+    margin: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+li
+{
+    list-style-type: none;
+}
+
+button{
+
+    margin-top: 20px;
+    padding: 5px;
+    width: 50%;
 }

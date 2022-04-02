@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphComponent implements OnInit {
 
-  constructor() { }
+  ImagePath: string;
+
+  constructor() {
+  this.ImagePath = '/assets/graph.jpg';
+   }
+
 
   ngOnInit(): void {
-  }
+    
+    }
 
 }

@@ -1,9 +1,8 @@
 
-<div class="outer">
-  <app-sidenav style="float: left;" (addEvent)="onAddEvent($event)"></app-sidenav>
+<app-sidenav (addEvent)="onAddEvent($event)"></app-sidenav>
 
 
-<div class="dash">
+<div class="dashboard">
   
 <p>
     <button (click)="onAddEvent('table')">Add Item</button>
@@ -14,23 +13,16 @@
     <gridster-item [item]="item" *ngFor="let item of items">
       <!-- your content here -->
       
-        <div (mousedown)="$event.stopPropagation()" (touchstart)="$event.stopPropagation()">
-          Some content to click without dragging the widget
-        </div>
         <p>{{item.heading}}</p>
         <p>{{item.subheading}}</p>
         <div class="item-buttons">
-          <button md-icon-button md-raised-button class="drag-handler">
-              open_with
-          </button>
-          <button md-icon-button md-raised-button class="remove-button" (click)="removeItem($event, item)"
-                  (touchstart)="removeItem($event, item)" mdTooltip="Remove">
-            clear
+          <button md-icon-button md-raised-button class="remove-button" (click)="removeItem($event, item.id)"
+                  (touchstart)="removeItem($event, item.id)" mdTooltip="Remove">
+            Delete
           </button>
         </div>
         <div *ngIf="item.type === 'table'"><app-table></app-table></div>
         <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
      </gridster-item>
   </gridster>
-</div>
 </div>

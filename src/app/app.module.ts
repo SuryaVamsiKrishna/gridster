@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridsterModule } from 'angular-gridster2';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableComponent } from './table/table.component';
@@ -20,6 +21,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { Output, EventEmitter } from '@angular/core';
+import { MatTableModule } from '@angular/material/table'  
 
 
 
@@ -47,6 +49,8 @@ import { Output, EventEmitter } from '@angular/core';
     MatFormFieldModule,
     MatSelectModule,
     MatDividerModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
