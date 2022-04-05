@@ -12,7 +12,7 @@ router.get('/list', function(req, res, next) {
     }
     else{
         const totcount = gridsListResponse.length;
-        res.send({status: 200, totcount : totcount, results: gridsListResponse}); 
+        res.send(gridsListResponse); 
     }
   })
 });

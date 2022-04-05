@@ -37,13 +37,13 @@ export class DashboardComponent implements OnInit {
    itemChange(item:any, itemComponent:any) {
     //  console.info('itemChanged', item, itemComponent);
     //  console.log(this.items);
-     this.updateGrids();
+    //  this.updateGrids();
    }
  
    itemResize(item:any, itemComponent:any) {
     //  console.info('itemResized', item, itemComponent);
     //  console.log(this.items);
-     this.updateGrids();
+    //  this.updateGrids();
    }
 
    constructor(private gridService: GridService) {}
@@ -65,14 +65,14 @@ export class DashboardComponent implements OnInit {
    }
 
    updateGrids(){
-    setTimeout(() => {  
+    
       console.log(this.items.length);
       for(let i=0;i< this.items.length; i++){
       console.log("Hi4");
       // this.items[i].cols = 2;
       console.log(this.items[i]);
       this.gridService.editGrid(this.items[i]);
-    } }, 3000);
+    }
      
     //  this.getGridList();
     // for(let i=0;i< this.items.length+1; i++){
@@ -84,35 +84,42 @@ export class DashboardComponent implements OnInit {
    }
 
    
-   getGridList(){
-    setTimeout(() => {this.items=[];
-      this.gridService.getGrids().subscribe((data) => {
-      this.gridResult = data;
-      this.gridList = this.gridResult.results; 
-      // console.log(this.gridList);
-      for(let i=0; i<this.gridList.length; i++){
-        let tempitem={id:'1', heading:'abc', subheading:'xyz',type: "table",cols: 1, rows: 1, y: 0, x: 0};
-        tempitem.id = this.gridList[i]._id;
-        tempitem.heading = this.gridList[i].heading;
-        tempitem.subheading = this.gridList[i].subheading;
-        tempitem.type = this.gridList[i].type;
-        tempitem.x = this.gridList[i].x;
-        tempitem.y = this.gridList[i].y;
-        tempitem.rows = this.gridList[i].rows;
-        tempitem.cols = this.gridList[i].cols;
-        // console.log(tempitem)
-        this.items.push(tempitem);
-        
-      }
+  //  getGridList(){
+  //   setTimeout(() => {this.items=[];
+  //     this.gridService.getGrids().subscribe((data) => {
+  //     this.gridResult = data;
+  //     this.gridList = this.gridResult.results; 
       
-     });
-    //  setTimeout(() => {  console.log("World!"); }, 3000);
-    //  console.log(this.items);
-    //  console.log(this.items[0]);
-    // console.log(this.items.length);
-   }, 1000);
-   }
+  //     for(let i=0; i<this.gridList.length; i++){
+  //       let tempitem={_id:'1', heading:'abc', subheading:'xyz',type: "table",cols: 1, rows: 1, y: 0, x: 0};
+  //       tempitem._id = this.gridList[i]._id;
+  //       tempitem.heading = this.gridList[i].heading;
+  //       tempitem.subheading = this.gridList[i].subheading;
+  //       tempitem.type = this.gridList[i].type;
+  //       tempitem.x = this.gridList[i].x;
+  //       tempitem.y = this.gridList[i].y;
+  //       tempitem.rows = this.gridList[i].rows;
+  //       tempitem.cols = this.gridList[i].cols;
+        
+  //       this.items.push(tempitem);
+        
+  //     }
+      
+  //    });
+  //  }, 1000);
+  //  }
  
+  getGridList(){
+    
+      this.gridService.getGrids().subscribe((responseTiles : Tiles[]) => {
+      this.items = responseTiles;
+      console.log(responseTiles);
+      console.log("HI");
+      console.log(this.items);
+     });
+   
+   }
+
    changedOptions() {
     //  this.options.api.optionsChanged();
    }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.dev';
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { Tiles } from '../dashboard/tiles.model';
 
 
 @Injectable({
@@ -11,9 +12,9 @@ export class GridService {
 
   constructor(private httpClient: HttpClient) {}
 
-    getGrids(){
+    getGrids() : Observable<Tiles[]>{
       let url = environment.GRIDS_BASE_URL+environment.GRID.GET_ALL_GRIDS;
-      return this.httpClient.get(url);  
+      return this.httpClient.get<Tiles[]>(url);  
     }
 
     addGrid(gridObj: any){
@@ -32,7 +33,7 @@ export class GridService {
       let url = environment.GRIDS_BASE_URL+environment.GRID.UPDATE_GRID;
       console.log(url);
       let gridObj2 = {
-        "gridId": gridObj.id,
+        "gridId": gridObj._id,
         "heading": gridObj.heading,
         "subheading": gridObj.subheading,
         "type": gridObj.type,

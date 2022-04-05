@@ -16,8 +16,8 @@
         <p>{{item.heading}}</p>
         <p>{{item.subheading}}</p>
         <div class="item-buttons">
-          <button md-icon-button md-raised-button class="remove-button" (click)="removeItem($event, item.id)"
-                  (touchstart)="removeItem($event, item.id)" mdTooltip="Remove">
+          <button md-icon-button md-raised-button class="remove-button" (click)="removeItem($event, item._id)"
+                  (touchstart)="removeItem($event, item._id)" mdTooltip="Remove">
             Delete
           </button>
         </div>
