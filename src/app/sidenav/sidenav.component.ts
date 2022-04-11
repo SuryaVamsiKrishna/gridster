@@ -4,6 +4,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 
 interface ExampleWidget {
   type: string;
+  heading: string;
+  subheading: string;
+  itemId: string;
 }
 
 @Component({
@@ -13,11 +16,15 @@ interface ExampleWidget {
 })
 export class SidenavComponent implements OnInit {
 
-  @Output() addEvent  = new EventEmitter<string>();
+  @Output() addEvent  = new EventEmitter<any>();
   examples: Array<ExampleWidget>;
+  isValid: boolean;
 
 
-  constructor() { }
+
+  constructor() { 
+  
+  }
 
   ngOnInit(): void {
     this.examples= WidgetsData;
@@ -34,8 +41,11 @@ export class SidenavComponent implements OnInit {
     this.addEvent.emit('graph');
   }
 
-  onAdd(type: string){
+  onAdd(type: any){
     this.addEvent.emit(type);
-  }
+
+   }
+
+  
 
 }

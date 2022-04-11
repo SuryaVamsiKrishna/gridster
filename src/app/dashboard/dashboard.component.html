@@ -3,11 +3,6 @@
 
 
 <div class="dashboard">
-  
-<p>
-    <button (click)="onAddEvent('table')">Add Item</button>
-</p>
-
 
 <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of items">
@@ -21,8 +16,12 @@
             Delete
           </button>
         </div>
-        <div *ngIf="item.type === 'table'"><app-table></app-table></div>
-        <div *ngIf="item.type === 'graph'"><app-graph></app-graph></div>
+        <app-table *ngIf="item.type === 'table'"></app-table>
+        <app-graph *ngIf="item.type === 'graph'"></app-graph>
+        <app-datepicker *ngIf="item.type === 'datepicker'"></app-datepicker>
+        <app-progressbar *ngIf="item.type === 'progressbar'"></app-progressbar>
+        <app-slider *ngIf="item.type === 'slider'"></app-slider>
+        <app-list *ngIf="item.type === 'list'"></app-list>
      </gridster-item>
   </gridster>
 </div>
