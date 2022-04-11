@@ -1,6 +1,7 @@
 const mongoose =  require('mongoose');
 
 const gridsSchema = mongoose.Schema({
+    itemId: String,
     heading: String,
     subheading: String,
     type: String,
