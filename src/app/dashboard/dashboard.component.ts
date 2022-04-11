@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
    gridList: any;
    tempitem : Tiles;
    itemids: any[];
+   snakbar: boolean = false;
 
   //  Dashboarditems: DashboardItemsData[] = DashboardData ;
 
@@ -140,6 +141,7 @@ export class DashboardComponent implements OnInit {
     //console.log('Hi2');
     if(this.itemids.indexOf(currobj.itemId)> -1)
     {
+      this.snakbar = true;
       return;
     }
     this.gridService.addGrid({ "heading":currobj.heading, "subheading":currobj.subheading, "itemId": currobj.itemId, "type": currobj.type,"x": 0, "y": 0, "rows": 1, "cols": 1});
