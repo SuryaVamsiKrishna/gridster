@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 const gridsModel = require('../models/grids.model');
+const fs = require("fs");
+const path = require("path");
 
 /* GET grids listing. */
 router.get('/list', function(req, res, next) {
@@ -106,5 +108,10 @@ router.delete('/delete', function(req, res, next) {
       }
     })
 });
+
+
+let rawdata = fs.readFileSync('components.json');
+let student = JSON.parse(rawdata);
+console.log(student);
 
 module.exports = router;

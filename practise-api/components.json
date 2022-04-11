@@ -1,0 +1,10 @@
+[
+    {   "id": 1,
+        "type":"table",
+        "disabled": false
+    },
+    {   "id": 2,
+        "type":"graph",
+        "disabled": false
+    }
+]
