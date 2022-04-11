@@ -21,7 +21,14 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { Output, EventEmitter } from '@angular/core';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SliderComponent } from './slider/slider.component'; 
+import {MatSliderModule} from '@angular/material/slider';
+import { ListComponent } from './list/list.component';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -32,7 +39,10 @@ import { MatTableModule } from '@angular/material/table'
     DashboardComponent,
     TableComponent,
     GraphComponent,
-    SidenavComponent
+    SidenavComponent,
+    DatepickerComponent,
+    SliderComponent,
+    ListComponent
   ],
   exports: [
     MatFormFieldModule,
@@ -50,7 +60,12 @@ import { MatTableModule } from '@angular/material/table'
     MatSelectModule,
     MatDividerModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatProgressBarModule,
+    MatSliderModule,
+    MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

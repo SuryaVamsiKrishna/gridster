@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
    gridResult: any;
    gridList: any;
    tempitem : Tiles;
+   itemids: any[];
 
   //  Dashboarditems: DashboardItemsData[] = DashboardData ;
 
@@ -68,9 +69,9 @@ export class DashboardComponent implements OnInit {
     
       console.log(this.items.length);
       for(let i=0;i< this.items.length; i++){
-      console.log("Hi4");
+      //console.log("Hi4");
       // this.items[i].cols = 2;
-      console.log(this.items[i]);
+      //console.log(this.items[i]);
       this.gridService.editGrid(this.items[i]);
     }
      
@@ -113,9 +114,14 @@ export class DashboardComponent implements OnInit {
     
       this.gridService.getGrids().subscribe((responseTiles : Tiles[]) => {
       this.items = responseTiles;
-      console.log(responseTiles);
-      console.log("HI");
-      console.log(this.items);
+      this.itemids = [];
+
+      this.items.forEach((item:any)=>{
+        this.itemids.push(item.itemId)
+      });
+      //console.log(responseTiles);
+      //console.log("HI");
+      //console.log(this.items);
      });
    
    }
@@ -130,9 +136,13 @@ export class DashboardComponent implements OnInit {
     // this.items.splice(this.items.indexOf(item), 1);
    }
  
-   addItem(currtype: string) {
-    console.log('Hi2');
-    this.gridService.addGrid({ "heading":"abc", "subheading":"xyz","type": currtype,"x": 0, "y": 0, "rows": 1, "cols": 1});
+   addItem(currobj: any) {
+    //console.log('Hi2');
+    if(this.itemids.indexOf(currobj.itemId)> -1)
+    {
+      return;
+    }
+    this.gridService.addGrid({ "heading":currobj.heading, "subheading":currobj.subheading, "itemId": currobj.itemId, "type": currobj.type,"x": 0, "y": 0, "rows": 1, "cols": 1});
     // console.log(this.items);
     // console.log(this.items[0]);
     // console.log(this.items.length);

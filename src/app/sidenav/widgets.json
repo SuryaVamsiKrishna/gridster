@@ -1,4 +1,8 @@
 [
-    {"type":"table"},
-    {"type":"graph"}
+    {"type":"table", "heading":"Today's Money", "subheading":"$53k", "itemId":"1"},
+    {"type":"graph", "heading":"Today's Users", "subheading":"2,300", "itemId":"2"},
+    {"type":"datepicker", "heading":"Today's Money", "subheading":"$53k", "itemId":"3"},
+    {"type":"progressbar", "heading":"Today's Money", "subheading":"$53k", "itemId":"4"},
+    {"type":"slider", "heading":"Today's Money", "subheading":"$53k", "itemId":"5"},
+    {"type":"list", "heading":"Today's Money", "subheading":"$53k", "itemId":"6"}
 ]
