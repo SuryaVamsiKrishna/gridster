@@ -36,6 +36,7 @@ router.post('/post', function(req, res, next) {
 
     console.log('Hi');
 
+    let itemId = req.body.itemId;
     let heading = req.body.heading;
     let subheading = req.body.subheading;
     let type = req.body.type;
@@ -45,6 +46,7 @@ router.post('/post', function(req, res, next) {
     let cols = req.body.cols;
 
     let gridsObj = new gridsModel({
+        itemId: itemId,
         heading:heading, 
         subheading:subheading,
         type: type,
