@@ -31,6 +31,8 @@ import { ListComponent } from './list/list.component';
 import {MatListModule} from '@angular/material/list';
 import { SnakbarComponent } from './snakbar/snakbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { IconComponent } from './icon/icon.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -45,7 +47,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     DatepickerComponent,
     SliderComponent,
     ListComponent,
-    SnakbarComponent
+    SnakbarComponent,
+    IconComponent
   ],
   exports: [
     MatFormFieldModule,
@@ -68,7 +71,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressBarModule,
     MatSliderModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule
 
   ],
   providers: [],

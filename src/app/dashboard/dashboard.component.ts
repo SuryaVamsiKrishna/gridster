@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GridsterConfig, GridsterItem }  from 'angular-gridster2';
 import { Tiles } from './tiles.model';
 import { GridService } from '../services/grid.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface DashboardItemsData {
   heading: string;
@@ -36,6 +37,9 @@ export class DashboardComponent implements OnInit {
 
   //  Dashboarditems: DashboardItemsData[] = DashboardData ;
 
+  constructor(private gridService: GridService, private _snackBar: MatSnackBar) {}
+    
+
    itemChange(item:any, itemComponent:any) {
     //  console.info('itemChanged', item, itemComponent);
     //  console.log(this.items);
@@ -48,9 +52,7 @@ export class DashboardComponent implements OnInit {
     //  this.updateGrids();
    }
 
-   constructor(private gridService: GridService) {}
-    
- 
+   
    ngOnInit() { 
      this.options = {
        itemChangeCallback: this.itemChange,
@@ -141,7 +143,9 @@ export class DashboardComponent implements OnInit {
     //console.log('Hi2');
     if(this.itemids.indexOf(currobj.itemId)> -1)
     {
-      this.snakbar = true;
+      this._snackBar.open("Component already added", "Close", {
+        duration: 3000
+       });
       return;
     }
     this.gridService.addGrid({ "heading":currobj.heading, "subheading":currobj.subheading, "itemId": currobj.itemId, "type": currobj.type,"x": 0, "y": 0, "rows": 1, "cols": 1});

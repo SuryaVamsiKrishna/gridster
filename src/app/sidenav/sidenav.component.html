@@ -1,12 +1,12 @@
 <div class="sidenav">
 
-<div class="type" *ngFor="let example of examples">
+<ul class="type">
     
-         <button (click)="onAdd( example )">{{example.heading}}</button> 
+         <li *ngFor="let example of examples" (click)="onAdd( example )">{{example.heading}}</li>
         <!-- <li><button (click)="onAddGraph()">Graph</button></li> -->
 
 
-</div>
+</ul>
 
 
 </div>
