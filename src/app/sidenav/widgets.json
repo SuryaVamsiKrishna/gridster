@@ -1,8 +1,8 @@
 [
-    {"type":"table", "heading":"Today's Money", "subheading":"$53k", "itemId":"1"},
-    {"type":"graph", "heading":"Today's Users", "subheading":"2,300", "itemId":"2"},
-    {"type":"datepicker", "heading":"Today's Money", "subheading":"$53k", "itemId":"3"},
-    {"type":"progressbar", "heading":"Today's Money", "subheading":"$53k", "itemId":"4"},
-    {"type":"slider", "heading":"Today's Money", "subheading":"$53k", "itemId":"5"},
-    {"type":"list", "heading":"Today's Money", "subheading":"$53k", "itemId":"6"}
+    {"type":"table", "heading":"Today's Money", "subheading":"$53k", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU","itemId":"1"},
+    {"type":"graph", "heading":"Today's Users", "subheading":"2,300", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU", "itemId":"2"},
+    {"type":"datepicker", "heading":"New Clients", "subheading":"3,462", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU", "itemId":"3"},
+    {"type":"progressbar", "heading":"Sales", "subheading":"$103,430", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU", "itemId":"4"},
+    {"type":"slider", "heading":"Website Views", "subheading":"Last Campaign Performance", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU", "itemId":"5"},
+    {"type":"list", "heading":"Completed Tasks", "subheading":"(+15%) increase in today sales", "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIi9NeFaf5u0bhz964BrrYbPCHc9_jTqdHVFQVS02oxjx5ZE1OnqYLUd5y5iLPFGY2Oks&usqp=CAU", "itemId":"6"}
 ]

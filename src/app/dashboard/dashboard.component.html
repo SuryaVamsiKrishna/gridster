@@ -1,5 +1,5 @@
 
-<app-sidenav (addEvent)="onAddEvent($event)"></app-sidenav>
+<app-sidenav (addEvent)="onAddEvent($event)" [timevalue]="timevalue" [passvalue]="passvalue"></app-sidenav>
 
 
 <div class="dashboard">
@@ -24,5 +24,5 @@
         <app-list *ngIf="item.type === 'list'"></app-list>
      </gridster-item>
   </gridster>
-  <app-snakbar *ngIf="snakbar"></app-snakbar>
+  <!-- <app-snakbar *ngIf="snakbar"></app-snakbar> -->
 </div>

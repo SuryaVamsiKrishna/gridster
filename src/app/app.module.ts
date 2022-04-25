@@ -31,7 +31,10 @@ import { ListComponent } from './list/list.component';
 import {MatListModule} from '@angular/material/list';
 import { SnakbarComponent } from './snakbar/snakbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
+
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 
@@ -68,7 +71,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressBarModule,
     MatSliderModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DragDropModule,
+    MatNativeDateModule
 
   ],
   providers: [],

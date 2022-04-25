@@ -1,12 +1,32 @@
 <div class="sidenav">
 
-<div class="type" *ngFor="let example of examples">
-    
-         <button (click)="onAdd( example )">{{example.heading}}</button> 
-        <!-- <li><button (click)="onAddGraph()">Graph</button></li> -->
+        <!-- <ul class="type">
+            
+                 <li *ngFor="let example of examples" (click)="onAdd( example )">{{example.heading}}</li>
+                
+        
+        
+        </ul> -->
+        <br>
+        <br>
+        <!-- <br>
+        <br>
+        <br>
+        <br> -->
+        
 
-
+        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box"  *ngFor="let movie of examples" (mousedown)="onAdd( movie )" cdkDrag>
+                  <div *ngIf="movie.type === passvalue" [class.label-animate]="timevalue">{{movie.heading}}
+                </div>
+                <div *ngIf="movie.type !== passvalue">{{movie.heading}}
+                        <img *cdkDragPreview [src]="movie.poster" [alt]="movie.heading">
+                      </div>
+                  <br>
+                </div>
+        </div>
+        
+        
 </div>
 
-
-</div>
+        

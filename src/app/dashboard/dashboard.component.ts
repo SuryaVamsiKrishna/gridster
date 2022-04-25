@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { GridsterConfig, GridsterItem }  from 'angular-gridster2';
 import { Tiles } from './tiles.model';
 import { GridService } from '../services/grid.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 interface DashboardItemsData {
   heading: string;
@@ -33,8 +35,13 @@ export class DashboardComponent implements OnInit {
    tempitem : Tiles;
    itemids: any[];
    snakbar: boolean = false;
-
+   timevalue: boolean = true;
+   passvalue: string;
+   @Output() tempEvent  = new EventEmitter<any>();
   //  Dashboarditems: DashboardItemsData[] = DashboardData ;
+
+  constructor(private gridService: GridService, private _snackBar: MatSnackBar) {}
+    
 
    itemChange(item:any, itemComponent:any) {
     //  console.info('itemChanged', item, itemComponent);
@@ -48,9 +55,7 @@ export class DashboardComponent implements OnInit {
     //  this.updateGrids();
    }
 
-   constructor(private gridService: GridService) {}
-    
- 
+   
    ngOnInit() { 
      this.options = {
        itemChangeCallback: this.itemChange,
@@ -139,9 +144,15 @@ export class DashboardComponent implements OnInit {
  
    addItem(currobj: any) {
     //console.log('Hi2');
+    this.timevalue =true;
     if(this.itemids.indexOf(currobj.itemId)> -1)
     {
-      this.snakbar = true;
+      // this.tempEvent.emit(true);
+      this.timevalue = false;
+      this.passvalue = currobj.type;
+      this._snackBar.open("Component already added", "Close", {
+        duration: 3000
+       });
       return;
     }
     this.gridService.addGrid({ "heading":currobj.heading, "subheading":currobj.subheading, "itemId": currobj.itemId, "type": currobj.type,"x": 0, "y": 0, "rows": 1, "cols": 1});

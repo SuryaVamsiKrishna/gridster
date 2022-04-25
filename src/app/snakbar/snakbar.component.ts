@@ -15,7 +15,7 @@ export class SnakbarComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    //console.log(message);
+    console.log(message);
     this._snackBar.open(message, action, {
   duration: 3000
 });
